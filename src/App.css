@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.black-nav {
+  display: flex;
+  background: #000;
+  width: 100%;
+  color: #fff;
+  padding-left: 20px;
+  font-size: 20px;
+}
+
+div {
+  box-sizing: border-box;
+}
+.list {
+  padding-left: 20px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.list h4 {
+  font-size: 20px;
+}
+.list span {
+  display: inline-block;
+  padding: 5px;
+  margin: 0 5px;
+  cursor: pointer;
+  background: #444;
+  border-radius: 10px;
+}
