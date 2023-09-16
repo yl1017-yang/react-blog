@@ -102,7 +102,7 @@ function App() {
       {
         // 삼항연산자(ternary operator) : if문 대신 사용
         // 조건식 ? 참일때 실행할 코드 : 거짓일 때 실행할 코드
-        modal == true ? <Modal></Modal> : null   //null은 비어있는 html용으로 자주 사용
+        modal == true ? <Modal color={'skyblue'} 글제목={글제목}></Modal> : null   //null은 비어있는 html용으로 자주 사용
         // modal == true ? <Modal></Modal> : modal == false ? <Modal></Modal> : null
       }
 
@@ -114,8 +114,17 @@ function App() {
 }
 
 
-//강의내용 - 자식이 부모의 state 가져다쓰고 싶을 때는 props
-
+function Modal(props) {
+  return (
+    <>
+      <div className='modal' style={{background : props.color}}>
+        <h4>{props.글제목[0]}</h4>
+        <p>날짜</p>
+        <p>상세내용</p>
+      </div>
+    </>
+  )
+}
 
 // 컴포넌트 만드는법
 // 1. function 맨 하단에 만들고 작명(작명은 영문 대문자로 시작)
@@ -135,16 +144,13 @@ function App() {
 //   }
 // } 함수처럼 사용하는 컴포넌트
 
-function Modal() {
-  return (
-    <>
-      <div className='modal'>
-        <h4>제목</h4>
-        <p>날짜</p>
-        <p>상세내용</p>
-      </div>
-    </>
-  )
-}
+// 부모 컴포넌트에서 자식 컴포넌트 state 사용 가능하고 props 사용해야함
+// 부모->자식 state 전송하는 법
+// 1. <자식컴포넌트 작명={state이름}>
+// 2. props 파라미터 등록 후 props.작명 사용
+
+//강의내용 - 자식이 부모의 state 가져다쓰고 싶을 때는 props
+
+
 
 export default App;
