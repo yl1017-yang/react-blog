@@ -102,7 +102,7 @@ function App() {
       {
         // 삼항연산자(ternary operator) : if문 대신 사용
         // 조건식 ? 참일때 실행할 코드 : 거짓일 때 실행할 코드
-        modal == true ? <Modal color={'skyblue'} 글제목={글제목}></Modal> : null   //null은 비어있는 html용으로 자주 사용
+        modal == true ? <Modal color='skyblue' 글제목={글제목}></Modal> : null   //null은 비어있는 html용으로 자주 사용
         // modal == true ? <Modal></Modal> : modal == false ? <Modal></Modal> : null
       }
 
@@ -121,6 +121,11 @@ function Modal(props) {
         <h4>{props.글제목[0]}</h4>
         <p>날짜</p>
         <p>상세내용</p>
+        <button onClick={()=>{
+          let copy = [...props.글제목];
+          copy[0] = ['첫번째 코트 추천']
+          props.글제목(copy);
+        }}>글수정</button>
       </div>
     </>
   )
