@@ -104,6 +104,10 @@ function App() {
       <button onClick={()=>{ setTitle(1) }}>글제목1</button>
       <button onClick={()=>{ setTitle(2) }}>글제목2</button>
 
+
+      <input type="text"></input>
+      {/* input 타입 text, range, checkbox */}
+
       {
         // 삼항연산자(ternary operator) : if문 대신 사용
         // 조건식 ? 참일때 실행할 코드 : 거짓일 때 실행할 코드
