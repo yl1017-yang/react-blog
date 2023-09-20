@@ -10,19 +10,13 @@ function App() {
   let [modal, setModal] = useState(false);
   let [title, setTitle] = useState(0);
   let [입력값, 입력값변경] = useState('');
+  let [따봉입력값, 따봉입력값변경] = useState('');
   const date = new Date();
-
-  const HandleOnChange = (e) => {
-    if (입력값변경(e.target.value).trim() == "") {
-      입력값변경(e.target.value).val('');
- 	    return false;
-    }
-  }
 
   return (
     <div className="App">
       <div className='black-nav'>
-        <h4>블로그</h4>
+        <h4>리액트 블로그</h4>
       </div>
       
 
@@ -67,24 +61,36 @@ function App() {
       }
 
       
-      {/* <input onChange={(e)=>{ 
+      <input placeholder="글 제목을 입력하세요" onChange={(e)=>{ 
         입력값변경(e.target.value);
-      }} /> */}
-      <input onChange={HandleOnChange} value={입력값} />
+      }} value={입력값} />
 
+      {/* 공백입력방지- https://velog.io/@dbqls6365/React-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%A0%9C%EC%9E%914-%EA%B3%B5%EB%B0%B1-%EC%9E%85%EB%A0%A5-%EB%B0%A9%EC%A7%80%ED%95%98%EA%B8%B0 */}
       <button onClick={(e)=>{
-        글제목변경(e.target.value);
-        // 글제목변경([...글제목, 입력값]);
-        let copy = [...글제목];
-        copy.unshift(입력값);  // array자료 맨 앞에 자료추가하는 문법
-        글제목변경(copy);
-      }}>글발행</button>
+        // if (입력값.length === 0){
+        if (!입력값.length){
+          alert('글 제목을 입력하세요');
+          return false;
+        }
+        else {
+          글제목변경(e.target.value);
+          // 글제목변경([...글제목, 입력값]);
+          let copy = [...글제목];
+          copy.unshift(입력값);  // array자료 맨 앞에 자료추가하는 문법
+          글제목변경(copy);
+
+          let copy2 = [...따봉];
+          copy2[i] = copy2[i] + 1;
+          따봉입력값변경(copy2);
+        }
+      }}>글등록</button>
 
       <button onClick={()=>{
         입력값변경('');
       }}>초기화</button>
 
       <p>input vlue: {입력값}</p>
+      <p>따봉입력값: {따봉입력값}</p>
       
 
       {/* 
@@ -98,7 +104,7 @@ function App() {
 
       {
         modal == true 
-        ? <Modal title={title} 글제목변경={글제목변경} 글제목={글제목}></Modal> 
+        ? <Modal title={title} 글제목변경={글제목변경} 글제목={글제목} setModal={setModal}></Modal> 
         : null
       }
       
@@ -115,11 +121,16 @@ function Modal(props) {
         <h4>{ props.글제목[props.title] }</h4>
         <p>날짜</p>
         <p>상세내용</p>
+
         <button onClick={()=>{
           let copy = [...props.글제목];
           copy[0] = ['-글제목 변경'];
           props.글제목변경(copy);
         }}>글수정</button>
+
+        <button onClick={()=>{ 
+          props.setModal(false);
+        }}>창닫기</button>
       </div>
     </>
   )

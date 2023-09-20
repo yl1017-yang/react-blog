@@ -1,18 +1,17 @@
+body {
+  background: #444;
+}
 .App {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  max-height: 700px;
   text-align: center;
   padding: 0;
-  margin: 0;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  overflow: auto;
 }
 
 .App-header {
@@ -41,40 +40,43 @@
 
 .black-nav {
   display: flex;
-  background: #000;
+  background: #222;
   width: 100%;
   color: #fff;
-  padding-left: 20px;
+  padding: 0 30px;
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 div {
   box-sizing: border-box;
 }
 .list {
-  padding: 5px 20px;
+  padding: 5px 30px;
   border-bottom: 1px solid #ddd;
   text-align: left;
 }
 .list h4 {
   font-size: 20px;
 }
+.list p {
+  
+}
 .bong {
   display: inline-block;
   padding: 4px;
-  margin: 0 10px;
+  margin: 0 10px 0 30px;
   cursor: pointer;
-  background: #444;
-  border-radius: 8px;
+  background: #333;
+  border-radius: 6px;
 }
 button {
-  background: #222;
+  background: #555;
   color: #fff;
   padding: 10px 20px;
   margin: 0 10px;
   border: 0;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
 }
 input {
@@ -82,12 +84,18 @@ input {
   background: #ddd;
   border: 0;
   height: 40px;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 .modal {
-  margin: 20px;
-  padding: 20px;
-  background: #666;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 50px;
+  right: 50px;
+  padding: 40px;
+  /* background: #444; */
+  background-color:rgba(0, 0, 0, 0.8);
   color: #fff;
   border-radius: 10px;
+  text-align: left;
 }
