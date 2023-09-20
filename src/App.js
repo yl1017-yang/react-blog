@@ -159,6 +159,7 @@ class Modal2 extends React.Component {
 
 //강의내용 - input 다루기 2 : 블로그 글발행 기능 만들기
 // 리액트 git 배포 : https://velog.io/@bami/React-GitHub-Pages에-배포하기
+// npm run build     npm run deploy
 
 
 

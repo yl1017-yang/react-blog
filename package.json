@@ -20,6 +20,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
+  "homepage": "https://yl1017-yang.github.io/react-blog/",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -36,7 +37,6 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ],
-    "homepage": "https://yl1017-yang.github.io/react-blog/"
+    ]    
   }
 }
