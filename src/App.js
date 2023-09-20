@@ -1,5 +1,7 @@
 //wraning 무시  /* eslint-disable */
 
+
+import * as React from 'react'; //리액트 옛날문구 사용시 import
 import { useState } from 'react';
 import './App.css';
 
@@ -10,13 +12,12 @@ function App() {
   let [modal, setModal] = useState(false);
   let [title, setTitle] = useState(0);
   let [입력값, 입력값변경] = useState('');
-  let [따봉입력값, 따봉입력값변경] = useState('');
   const date = new Date();
 
   return (
     <div className="App">
       <div className='black-nav'>
-        <h4>리액트 블로그</h4>
+        <h4>리액트 블로그 https://yl1017-yang.github.io/react-blog/</h4>
       </div>
       
 
@@ -78,10 +79,6 @@ function App() {
           let copy = [...글제목];
           copy.unshift(입력값);  // array자료 맨 앞에 자료추가하는 문법
           글제목변경(copy);
-
-          let copy2 = [...따봉];
-          copy2[i] = copy2[i] + 1;
-          따봉입력값변경(copy2);
         }
       }}>글등록</button>
 
@@ -89,8 +86,7 @@ function App() {
         입력값변경('');
       }}>초기화</button>
 
-      <p>input vlue: {입력값}</p>
-      <p>따봉입력값: {따봉입력값}</p>
+      {/* <p>input vlue: {입력값}</p> */}
       
 
       {/* 
@@ -108,7 +104,8 @@ function App() {
         : null
       }
       
-      
+      <Modal2></Modal2>
+
     </div>
   );
 }
@@ -137,8 +134,31 @@ function Modal(props) {
 }
 
 
+// class 문법으로 컴포넌트 만들기 : 예전 스타일
+class Modal2 extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      name : 'kim',
+      age : 20
+    }
+  }
+
+  render(){
+    return (
+      <div>
+        안녕 {this.state.age}
+        <button onClick={()=>{
+          this.setState({age : 21})
+        }}>버튼</button>
+      </div>
+    )
+  }
+}
+
 
 //강의내용 - input 다루기 2 : 블로그 글발행 기능 만들기
+// 리액트 git 배포 : https://velog.io/@bami/React-GitHub-Pages에-배포하기
 
 
 
